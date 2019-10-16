@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 
-import {QUESTION_ANSWER,
+import {
+  QUESTION_ANSWER,
   INIT_QUESTIONS,
   SUBMIT,
   NEXT_QUESTION,
   PREVIOUS_QUESTION,
   CHANGE_QUESTION,
   RESET,
-  LOADING} from "./actions";
+  LOADING
+} from "./actions";
 
 function score(state = 0, action = {}) {
   switch (action.type) {

@@ -1,20 +1,23 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { StyleSheet, Image, Text, TextInput, View } from 'react-native';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { StyleSheet, Image, Text, TextInput, View } from "react-native";
 
+const Content = props => {
+  const { currentQuestion, questions } = props;
+  console.log(questions);
+  return questions.length === 0 ? (
+    <View>
+      <Text>Question {currentQuestion + 1}</Text>
+      <Text></Text>
+      <TextInput style={styles.input}></TextInput>
+    </View>
+  ) : (
+    <Text>No questions</Text>
+  );
+};
 
-const Content = (props) => {
-    const { currentQuestion, questions } = props
-    const question = questions[currentQuestion]
-    return (
-        <View>
-            <Text>Question {currentQuestion + 1}</Text>
-            <TextInput></TextInput>
-        </View>
-    );
-}
+export default Content;
 
-function mapStateToProps(state) {
-    return { ...state }
-}
-export default connect(mapStateToProps)(Content);
+const styles = StyleSheet.create({
+  input: { borderWidth: 2, borderColor: "grey", width: 100 }
+});

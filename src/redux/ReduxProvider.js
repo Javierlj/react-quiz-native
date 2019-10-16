@@ -5,7 +5,6 @@ import React, { Component } from "react";
 import GlobalState from "./reducers";
 import Game from "../components/Game/Game";
 
-
 export default class ReduxProvider extends Component {
   constructor(props) {
     super(props);
