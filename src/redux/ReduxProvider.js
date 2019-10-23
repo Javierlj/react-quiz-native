@@ -4,6 +4,7 @@ import { createStore } from "redux";
 import React, { Component } from "react";
 import GlobalState from "./reducers";
 import Game from "../components/Game/Game";
+import AppContainer from "../components/Navigation/Navigation";
 
 export default class ReduxProvider extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class ReduxProvider extends Component {
   render() {
     return (
       <Provider store={this.store}>
-        <Game />
+        <AppContainer />
       </Provider>
     );
   }

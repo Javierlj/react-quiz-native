@@ -18,7 +18,11 @@ const Game = props => {
   return (
     <View style={styles.container}>
       <Navbar />
-      <Content questions={questions} currentQuestion={currentQuestion} />
+      <Content
+        questions={questions}
+        currentQuestion={currentQuestion}
+        question={questions[currentQuestion]}
+      />
       <Actionbar />
     </View>
   );

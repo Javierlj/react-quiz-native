@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 import { StyleSheet, Image, Text, TextInput, View } from "react-native";
 
 const Content = props => {
-  const { currentQuestion, questions } = props;
-  console.log(questions);
+  const { currentQuestion, questions, question } = props;
   return questions.length === 0 ? (
+    <Text>No hay preguntas</Text>
+  ) : (
     <View>
+      <Image
+        style={{ width: 300, height: 150 }}
+        source={{ uri: question.attachment.url }}
+      ></Image>
       <Text>Question {currentQuestion + 1}</Text>
-      <Text></Text>
+      <Text>{question.question}</Text>
       <TextInput style={styles.input}></TextInput>
     </View>
-  ) : (
-    <Text>No questions</Text>
   );
 };
 
