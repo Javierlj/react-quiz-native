@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import GlobalState from "./reducers";
 import Game from "../components/Game/Game";
 import AppContainer from "../components/Navigation/Navigation";
+import { Text } from "react-native";
 
 export default class ReduxProvider extends Component {
   constructor(props) {

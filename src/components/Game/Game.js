@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 
 import Navbar from "../Navbar/Navbar";
@@ -9,7 +9,14 @@ import Actionbar from "../Actionbar/Actionbar";
 import { getQuestions } from "../../services/apiCalls";
 
 const Game = props => {
-  const { dispatch, questions, currentQuestion } = props;
+  const {
+    dispatch,
+    questions,
+    currentQuestion,
+    loading,
+    finished,
+    score
+  } = props;
 
   useEffect(() => {
     getQuestions(dispatch);
@@ -18,12 +25,32 @@ const Game = props => {
   return (
     <View style={styles.container}>
       <Navbar />
-      <Content
+      {loading ? (
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : (
+        <Content
+          questions={questions}
+          currentQuestion={currentQuestion}
+          question={questions[currentQuestion]}
+        />
+      )}
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        Resultado: {finished ? score : ""}
+      </Text>
+      <Actionbar
+        dispatch={dispatch}
         questions={questions}
         currentQuestion={currentQuestion}
-        question={questions[currentQuestion]}
+        loading={loading}
+        finished={finished}
       />
-      <Actionbar />
     </View>
   );
 };
@@ -38,7 +65,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: "space-around",
+    alignItems: "center",
+    margin: 20
   }
 });
