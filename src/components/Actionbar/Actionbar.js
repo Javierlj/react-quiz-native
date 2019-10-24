@@ -8,7 +8,14 @@ import {
 } from "../../redux/actions";
 
 const Actionbar = props => {
-  const { questions, dispatch, currentQuestion, loading, finished } = props;
+  const {
+    questions,
+    dispatch,
+    currentQuestion,
+    loading,
+    finished,
+    navigation
+  } = props;
 
   const saveQuestions = async () => {
     try {
@@ -53,6 +60,7 @@ const Actionbar = props => {
           marginBottom: 10
         }}
       >
+        <Button title="<" onPress={() => navigation.goBack()} />
         <Button
           onPress={() => dispatch(previousQuestion())}
           disabled={currentQuestion === 0 || loading}

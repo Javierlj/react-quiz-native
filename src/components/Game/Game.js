@@ -15,7 +15,8 @@ const Game = props => {
     currentQuestion,
     loading,
     finished,
-    score
+    score,
+    navigation
   } = props;
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const Game = props => {
         currentQuestion={currentQuestion}
         loading={loading}
         finished={finished}
+        navigation={navigation}
       />
     </View>
   );

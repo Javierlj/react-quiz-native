@@ -3,11 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import ReduxProvider from "./src/redux/ReduxProvider";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <ReduxProvider />
-    </View>
-  );
+  return <ReduxProvider />;
 }
 
 const styles = StyleSheet.create({

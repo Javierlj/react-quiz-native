@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Button } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import Game from "../Game/Game";
@@ -8,7 +8,10 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen</Text>
+        <Button
+          title={"Play game"}
+          onPress={() => this.props.navigation.navigate("Game")}
+        />
       </View>
     );
   }
@@ -28,5 +31,5 @@ const AppNavigator = createStackNavigator(
     headerMode: "none"
   }
 );
-const AppContainer = createAppContainer(AppNavigator);
-export default AppContainer;
+
+export default createAppContainer(AppNavigator);
